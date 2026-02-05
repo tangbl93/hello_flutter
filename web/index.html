@@ -19,58 +19,6 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A Flutter Web application.">
-
-  <style>
-    /* Web 模拟器样式 - iPhone 15 Pro Max 尺寸 */
-    @media (min-width: 768px) {
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      }
-
-      #flutter-target {
-        width: 430px;
-        height: 932px;
-        border-radius: 50px;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                    0 0 0 12px #1a1a1a,
-                    0 0 0 14px #333;
-        overflow: hidden;
-        background: #000;
-        position: relative;
-        padding-top: 54px; /* 为灵动岛预留空间：12px(顶部边距) + 42px(动态岛高度) */
-      }
-
-      /* 动态岛效果 */
-      #flutter-target::before {
-        content: '';
-        position: absolute;
-        top: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 126px;
-        height: 42px;
-        background: #000;
-        border-radius: 21px;
-        z-index: 1000;
-      }
-    }
-
-    @media (max-width: 767px) {
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
-    }
-  </style>
-
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -91,15 +39,8 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
-  <!-- Flutter 应用容器 - 在桌面端模拟手机尺寸 -->
-  <div id="flutter-target"></div>
-
   <script>
     window.addEventListener('load', function(ev) {
-      // 判断是否为桌面环境
-      const isDesktop = window.innerWidth >= 768;
-      const hostElement = isDesktop ? document.getElementById('flutter-target') : document.body;
-
       // Download main.dart.js
       _flutter.loader.loadEntrypoint({
         serviceWorker: {
@@ -108,8 +49,7 @@
         onEntrypointLoaded: async function(engineInitializer) {
           // Initialize the Flutter engine
           let appRunner = await engineInitializer.initializeEngine({
-            hostElement: hostElement,
-            assetBase: isDesktop ? "/hello_flutter/" : "/"
+            hostElement: document.body
           });
 
           // Run the app
