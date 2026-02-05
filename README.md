@@ -13,17 +13,20 @@ Visit the live app at:
 
 ### Run Locally
 ```bash
+cd /home/Projects/hello_flutter
 flutter pub get
 flutter run -d chrome
 ```
 
 ### Build Web
 ```bash
+cd /home/Projects/hello_flutter
 flutter build web
 ```
 
 ### Preview Web Build
 ```bash
+cd /home/Projects/hello_flutter
 flutter build web
 cd build/web
 python3 -m http.server 8080
