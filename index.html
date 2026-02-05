@@ -44,6 +44,7 @@
         overflow: hidden;
         background: #000;
         position: relative;
+        padding-top: 54px; /* 为灵动岛预留空间：12px(顶部边距) + 42px(动态岛高度) */
       }
 
       /* 动态岛效果 */
@@ -54,9 +55,9 @@
         left: 50%;
         transform: translateX(-50%);
         width: 126px;
-        height: 37px;
+        height: 42px;
         background: #000;
-        border-radius: 20px;
+        border-radius: 21px;
         z-index: 1000;
       }
     }
@@ -84,7 +85,7 @@
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "34701585";
+    const serviceWorkerVersion = "274822008";
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
